@@ -76,3 +76,70 @@ Do you want to continue? [Y/n] y
 # routers).
 #
 net.ipv4.ip_forward = 1
+
+# Source validation by reversed path, as specified in RFC 1812.
+#
+# Recommended option for single homed hosts and stub network routers.
+# Could cause troubles for complicated (not loop free) networks
+# running a slow unreliable protocol (sort of RIP), or using static
+# routes.
+#
+"/etc/net/sysctl.conf" 52L, 1987B written
+[root@isp ~]# 
+[root@isp ~]# iptables -t nat -A POSTROUTING -o ens18 -j MASQUERADE
+[root@isp ~]# iptables -t nat -A POSTROUTING -o ens18 -j MASQUERADE
+[root@isp ~]# iptables-save >> /etc/
+Display all 154 possibilities? (y or n)
+[root@isp ~]# iptables-save >> /etc/
+bash: /etc/: Is a directory
+[root@isp ~]# iptables-save >> /etc/sys
+sysconfig/      sysctl.d/       system-release  
+sysctl.conf     syslog.d/       systemd/        
+[root@isp ~]# iptables-save >> /etc/sys
+sysconfig/      sysctl.d/       system-release  
+sysctl.conf     syslog.d/       systemd/        
+[root@isp ~]# iptables-save >> /etc/sysc
+sysconfig/   sysctl.conf  sysctl.d/    
+[root@isp ~]# iptables-save >> /etc/sysconfig/
+chronyd           grub2.rpmnew      iptables_modules  network
+chrooted          halt              iptables_params   qemu-ga
+clock             harddisk/         keyboard          rpcbind
+console/          i18n              limits            sshd
+consolefont       init              limits.d/         system
+framebuffer       installkernel     mdadm             usb
+grub2             iptables          mouse             
+[root@isp ~]# iptables-save >> /etc/sysconfig/
+chronyd           grub2.rpmnew      iptables_modules  network
+chrooted          halt              iptables_params   qemu-ga
+clock             harddisk/         keyboard          rpcbind
+console/          i18n              limits            sshd
+consolefont       init              limits.d/         system
+framebuffer       installkernel     mdadm             usb
+grub2             iptables          mouse             
+[root@isp ~]# iptables-save >> /etc/sysconfig/iptables
+[root@isp ~]# system restart net
+[root@isp ~]# systemctl enable 
+.bash_history  .bashrc        .ssh/          .zlogout       .zshrc
+.bash_logout   .i18n          .tcshrc        .zprofile      tmp/
+.bash_profile  .rpmmacros     .viminfo       .zshenv        
+[root@isp ~]# systemctl enable 
+.bash_history  .bashrc        .ssh/          .zlogout       .zshrc
+.bash_logout   .i18n          .tcshrc        .zprofile      tmp/
+.bash_profile  .rpmmacros     .viminfo       .zshenv        
+[root@isp ~]# systemctl enable --now
+Too few arguments.
+[root@isp ~]# systemctl enable --now iptables
+Synchronizing state of iptables.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install enable iptables
+Created symlink /etc/systemd/system/basic.target.wants/iptables.service → /usr/lib/systemd/system/iptables.service.
+[root@isp ~]# vim /etc/net/sysctl.conf 
+[root@isp ~]# iptables status
+Bad argument `status'
+Try `iptables -h' or 'iptables --help' for more information.
+[root@isp ~]# systemctl status iptables
+● iptables.service - IPv4 firewall with iptables
+     Loaded: loaded (/usr/lib/systemd/system/iptables.service; enabled; preset: disab>
+     Active: active (exited) since Tue 2025-06-17 18:57:34 +07; 28s ago
+    Process: 5616 ExecStart=/etc/init.d/iptables start (code=exited, status=0/SUCCESS)
+   Main PID: 5616 (code=exited, status=0/SUCCESS)
+        CPU: 25ms
